@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+<head>
+  {% block head %}
+      {{ block.super }}
+  {% endblock head %}
+</head>
+
+{% block header %}
+      {{ block.super }}
+{% endblock header %}
+
+{% block content %}
+  {% block first_section %}
+    {% block first_section_upper %}
+      {{block.super}}
+    {% endblock first_section_upper %}
+
+      <h1 class="display-5">IQ</h1>
+      <h5 style="color: white !important;" class="display-5">by OpenGenus Foundation</h5>
+      <p class="lead">Information at scale</p>
+
+    {% block first_section_lower %}
+      {{block.super}}
+  {% endblock first_section_lower %}
+{% endblock first_section %}
+
+  {% block second_section %}
+    {% block second_section_upper %}
+      {{block.super}}
+    {% endblock second_section_upper %}
+        <h1 class="h4">About IQ</h1>
+        <p class="mt-4 mb-4">
+          Information at scale: We are on a mission to enhance learning ability and solve the problem of information loss forever. Learn computer science concepts at scale with simplicity and innovation.
+          
+          <br><br>
+           <p class="lead">
+            <a class="btn btn-primary btn-lg" href="http://iq.opengenus.org/" target="_blank" role="button">IQ on Web</a>
+          </p>
+        </p>      
+    {% block second_section_lower %}
+      {{block.super}}
+    {% endblock second_section_lower %}
+  {% endblock second_section %}
+
+{% endblock content %}
+
+{% block press_section %}{{ block.super }}{% endblock press_section %}
+
+<footer>{% block footer %}{{ block.super }}{% endblock footer %}</footer>

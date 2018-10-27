@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+<head>
+{% block head %}
+    {{ block.super }}  
+{% endblock head %}
+</head>
+
+{% block header %}
+      {{ block.super }}
+{% endblock header %}
+
+
+{% block content %}
+  {% block first_section %}
+    {% block first_section_upper %}
+      {{block.super}}
+    {% endblock first_section_upper %}
+            <h1 class="display-5">Quark</h1>
+            <h5 style="color: white !important;" class="display-5">by OpenGenus Foundation</h5>
+
+            <p class="lead">Bringing the Internet offline</p>
+    {% block first_section_lower %}
+      {{block.super}}
+    {% endblock first_section_lower %}
+  {% endblock first_section %}
+
+
+  {% block second_section %}
+    {% block second_section_upper %}
+      {{block.super}}
+    {% endblock second_section_upper %}
+          <h1 class="h4">About Quark</h1>
+          <p class="mt-4 mb-4">
+            This is the World's first Offline code Search Engine presented by OpenGenus Foundation. You can, now, search code for any algorithm or data-structure in your favorite language even when you are not connected to the internet.
+            <br><br>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="https:github.com/opengenus/quark" target="_blank" role="button">Quark on GitHub</a>
+              <a class="btn btn-primary btn-lg" href="https://chrome.google.com/webstore/detail/opengenus-offline-search/lfoloadpfjildomeafpdopahkdaoofbn" target="_blank" role="button">Quark on Chrome Web Store</a>
+            </p>
+            <br><br>We are on a mission to bring the best parts of the Internet Offline, enable people to work offline for a longer period of time and revolutionize the way people interact with the web.
+            <br><br>
+            "We made the internet and it made us vulnerable. We fought and we won."
+            <br><br>
+            The best part is that the massive effort put to build this awesome search engine is open to all. Yes, we are an open-source organization and over 1000 people have become an integral part of our family in our ambitious journey. You can help us too.
+            <br><br>
+            Enjoy this tweet by David Heinemeier Hansson:
+            <br><br>
+            <div class="pro"><img src="/static/image/ddh_tweet.png"></div>
+            <br><br>
+            Quark:
+            <br><br>
+            <div class="pro"><img src="/static/image/quark.png"></div>
+            <br><br>
+             <p class="lead">
+              <a class="btn btn-primary btn-lg" href="https:github.com/opengenus/quark" target="_blank" role="button">Quark on GitHub</a>
+              <a class="btn btn-primary btn-lg" href="https://chrome.google.com/webstore/detail/opengenus-offline-search/lfoloadpfjildomeafpdopahkdaoofbn" target="_blank" role="button">Quark on Chrome Web Store</a>
+            </p>
+
+          </p>
+    {% block second_section_lower %}
+      {{block.super}}
+    {% endblock second_section_lower %}
+  {% endblock second_section %}
+
+{% endblock content %}
+
+{% block press_section %}{{ block.super }}{% endblock press_section %}
+
+<footer>{% block footer %}{{ block.super }}{% endblock footer %}</footer>

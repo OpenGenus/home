@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+<head>
+{% block head %}
+    {{ block.super }}  
+{% endblock head %}
+</head>
+
+{% block header %}
+      {{ block.super }}
+{% endblock header %}
+
+
+{% block content %}
+  {% block first_section %}
+    {% block first_section_upper %}
+      {{block.super}}
+    {% endblock first_section_upper %}
+
+      <h1 class="display-5">Cosmos</h1>
+      <h5 style="color: white !important;" class="display-5">by OpenGenus Foundation</h5>
+
+      <p class="lead">The Algorithms that run our Universe</p>
+
+    {% block first_section_lower %}
+      {{block.super}}
+    {% endblock first_section_lower %}
+  {% endblock first_section %}
+
+  {% block second_section %}
+    {% block second_section_upper %}
+      {{block.super}}
+    {% endblock second_section_upper %}
+          <h1 class="h4">About Cosmos</h1>
+          <p class="mt-4 mb-4">
+            Cosmos is your personal offline collection of every algorithm and data structure one will ever encounter and use in a lifetime. This provides solutions in various languages spanning C, C++, Java, JavaScript, Swift, Python, Go and many others.
+            <br><br>
+            <strong>Over 800 happy awesome people have contributed to Cosmos.</strong>
+
+            <br><br>
+
+            This work is maintained by a community of hundreds of people and is a massive collaborative effort to bring the readily available coding knowledge offline.
+
+            <br><br>
+            <strong>Cosmos is one of the most popular open-source projects with over 7000 stars and 800 contributors.</strong>
+
+            <br><br>
+            Currently, we have 5 active maintainers and we are expanding quickly. The task of maintainers is to review pull requests, suggest further quality additions and keep the work up to date with the current state of the world. You can, also, join us as a maintainer.
+
+            <br><br>
+            <strong>Contributing to Cosmos is one of the most easy and learning intensive task.</strong>
+
+            Check out Cosmos and help us develop it to be the best:<br><br>
+
+            <div class="pro">
+              <div id="carouselExampleIndicators" class="carousel slide" data-interval="3000" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="d-block" src="static/image/cosmos.png" alt="First slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block" src="static/image/cosmos.png" alt="Second slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block" src="static/image/cosmos.png" alt="Third slide">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br><br><br>
+             <p class="lead">
+              <a class="btn btn-primary btn-lg" href="https:github.com/opengenus/cosmos" target="_blank" role="button">Cosmos on GitHub</a>
+            </p>
+
+            <div class="contributors py-4">
+              <h1 class="h4">Cosmos Contributors</h1>
+              {% for d in data.data %}
+                  <a href={{d.link}} target="_blank" class="d-inline-block my-1" data-toggle="tooltip" title="Contributions: {{d.contributions}}"  style="width:6%;"><img src={{d.user_image}} alt={{d.name}} class="rounded-circle mw-100 mh-100" /></a>
+              {% endfor %}
+            </div>
+
+          </p>
+    {% block second_section_lower %}
+      {{block.super}}
+    {% endblock second_section_lower %}
+  {% endblock second_section %}
+
+{% endblock content %}
+
+{% block press_section %}{{ block.super }}{% endblock press_section %}
+
+<footer>{% block footer %}{{ block.super }}{% endblock footer %}</footer>
