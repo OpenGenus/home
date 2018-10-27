@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+<head>
+{% block head %}
+    {{ block.super }}  
+{% endblock head %}
+</head>
+
+{% block header %}
+      {{ block.super }}
+{% endblock header %}
+
+{% block content %}
+  {% block first_section %}
+    {% block first_section_upper %}
+      {{block.super}}
+    {% endblock first_section_upper %}
+
+      <h1 class="display-5">Search</h1>
+      <h5 style="color: white !important;" class="display-5">by OpenGenus Foundation</h5>
+
+      <p class="lead">Make searching effective and generation sensitive</p>
+
+    {% block first_section_lower %}
+      {{block.super}}
+    {% endblock first_section_lower %}
+  {% endblock first_section %}
+
+  {% block second_section %}
+    {% block second_section_upper %}
+      {{block.super}}
+    {% endblock second_section_upper %}
+        <h1 class="h4">About Search</h1>
+        <p class="mt-4 mb-4">
+        Cosmos Search is the real-time code search engine for all. We aim to revolutionize the way people interact and search for code. This is evident in our on-going work. Cosmos Search is privacy-focussed as we do not store any data.
+        <br><br>
+        <p class="lead">
+        <a class="btn btn-primary btn-lg" href="https://github.com/OpenGenus/cosmos-search" target="_blank" role="button">Search on GitHub</a>
+        <a class="btn btn-primary btn-lg" href="http://search.opengenus.org" target="_blank" role="button">Search on Web</a>
+        </p>
+        <br><br>
+        Some of our core beliefs that drive the development of this search engine:
+        <br><br>
+        <ul>
+        <li>Searching is more of a social act.</li>
+        <li>The Divide between programming languages and native languages must be minimized.</li>
+        <li>Time spend on searching must be minimized.</li>
+        <li>Time spend on learning, discussing and socializing must be maximized.</li>
+        </ul>
+        <br><br>
+        Cosmos Search is one of the most impactful sister projects of Cosmos powered by OpenGenus Foundation. This is the official search tool for cosmos, a library of every algorithm and data structure code that you will ever encounter.
+        <br><br>
+        <p class="lead">
+        <a class="btn btn-primary btn-lg" href="https://github.com/OpenGenus/cosmos-search" target="_blank" role="button">Search on GitHub</a>
+        <a class="btn btn-primary btn-lg" href="http://search.opengenus.org" target="_blank" role="button">Search on Web</a>
+        </p>
+        </p>
+    {% block second_section_lower %}
+      {{block.super}}
+    {% endblock second_section_lower %}
+  {% endblock second_section %}
+{% endblock content %}
+
+{% block press_section %}{{ block.super }}{% endblock press_section %}
+
+<footer>{% block footer %}{{ block.super }}{% endblock footer %}</footer>
