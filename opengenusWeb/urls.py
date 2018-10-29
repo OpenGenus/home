@@ -19,6 +19,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
+from pages.views import InternDetailView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name="home.html")),
@@ -28,8 +30,10 @@ urlpatterns = [
     path('search', TemplateView.as_view(template_name="search.html")),
     path('iq', TemplateView.as_view(template_name="iq.html")),
     path('discuss', TemplateView.as_view(template_name="discuss.html")),
-    path('intern/<str:latitude>', TemplateView.as_view(template_name="intern.html")),
+    # path('intern/<str:username>', internDetailView),
+    path('intern/<str:slug>', InternDetailView.as_view()),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

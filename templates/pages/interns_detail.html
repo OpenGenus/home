@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+<head>{% load static %}
+    {% block head %}
+    {{ block.super }}  
+{% endblock head %}    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,500" rel="stylesheet">
+    <meta name="description" content="OpenGenus Internship {{object.username}} {{object.position}} {{object.about}} ">
+    <meta name="keywords" content="OpenGenus, open-source, communities, internship, {{object.username}}, {{object.position}}">
+  </head>
+
+  <title>{% block head_title %}{{ block.super }}: {{object.username}}{% endblock head_title %}</title>
+{% block header %}
+    {{ block.super }}
+{% endblock header %}
+
+{% block content %}
+<br><br>
+  <body>
+    <div class="fluid-container p-5" >
+      <div class="row p-1">
+        <div class="col-sm-12 col-md-3">
+          <div class="px-3">
+            <img src="{{ object.picture_upload.url }}" class="rounded w-100 mb-4">
+            <h5 class="p-3 mb-2 bg-secondary text-white">{{object.username}}</h5>
+            <h6 class="p-3 mb-2 bg-secondary text-white">{{object.position}}</h6>
+            <h6 class="p-3 mb-2 bg-secondary text-white">{{object.start_date}} - {{object.finish_date}}</h6>
+            <!-- <a href="{{ object.discourse_url }}" target="_blank"><button type="button" class="btn btn-primary btn-md btn-block mt-4 rounded-0 disclosure font-weight-light">Talk on Discourse</button></a> -->
+            <a href="{{ object.discourse_url }}" target="_blank"><button type="button" class="btn btn-block btn-md btn-lg">Talk on Discourse</button></a>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-9">
+          <div class="p-2">
+            <h5 class="heading pl-3">About {{object.username}}</h5>
+            <p class="pl-3 description py-1">{{object.introduction}}</p>
+          </div>
+          <div class="p-2">
+            <h5 class="heading pl-3">Projects</h5>
+            <p class="pl-3 description py-1">{{object.work_done}}</p>
+          </div>
+          <div class="p-2">
+            <h5 class="heading pl-3">Favorite Experience</h5>
+            <p class="pl-3 description py-1">{{object.favorite_experience}}</p>
+          </div>
+        </div>
+      </div>
+  </body>
+{% endblock content %}
+
+{% block press_section %}
+{% endblock press_section %}
+
+<footer>
+{% block footer %}
+  {{ block.super }}
+{% endblock footer %}
+</footer>
