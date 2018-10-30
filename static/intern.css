@@ -42,3 +42,7 @@ a:hover{
 .purple-color{
   color: #5352ed;
 }
+
+.capitalize{
+  text-transform: capitalize;
+}

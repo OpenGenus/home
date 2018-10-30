@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+<head>{% load static %}
+    {% block head %}
+    {{ block.super }}  
+{% endblock head %}    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,500" rel="stylesheet">
+    <meta name="description" content="OpenGenus Internship {{object.username}} {{object.position}} {{object.about}} ">
+    <meta name="keywords" content="OpenGenus, open-source, communities, internship, {{object.username}}, {{object.position}}">
+  </head>
+
+  <title>{% block head_title %}{{ block.super }}{% endblock head_title %}</title>
+{% block header %}
+    {{ block.super }}
+{% endblock header %}
+
+{% block content %}
+<br><br><br><br>
+  <body>
+    <ul>
+    {% for obj in object_list  %}
+      <img src="{{ obj.picture_upload.url }}" style="height:135px;width:130px;" >
+      <li>
+        <a href='/intern/{{ obj.username }}'>{{obj.name}}</a><br>
+        {{obj.position}} {{obj.location}}
+       </li>
+      <br>
+    {% endfor %}
+    </ul>
+  </body>
+{% endblock content %}
+
+{% block press_section %}
+{% endblock press_section %}
+
+<footer>
+{% block footer %}
+  {{ block.super }}
+{% endblock footer %}
+</footer>

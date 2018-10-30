@@ -21,10 +21,10 @@
       <div class="row p-1">
         <div class="col-sm-12 col-md-3">
           <div class="px-3">
-            <img src="{{ object.picture_upload.url }}" class="rounded w-100 mb-4">
-            <h5 class="p-3 mb-2 bg-secondary text-white">{{object.username}}</h5>
-            <h6 class="p-3 mb-2 bg-secondary text-white">{{object.position}}</h6>
-            <h6 class="p-3 mb-2 bg-secondary text-white">{{object.start_date}} - {{object.finish_date}}</h6>
+            <img src="{{ object.picture_upload.url }}" style="height:235px;width:130px;" class="rounded w-100 mb-4">
+            <h3 class="p-3 mb-2">{{object.name}}</h5>
+            <h4 class="p-3 mb-2 capitalize">{{object.position}}</h6>
+            <h5 class="p-3 mb-2">{{object.start_date}} - {{object.finish_date}}</h6>
             <!-- <a href="{{ object.discourse_url }}" target="_blank"><button type="button" class="btn btn-primary btn-md btn-block mt-4 rounded-0 disclosure font-weight-light">Talk on Discourse</button></a> -->
             <a href="{{ object.discourse_url }}" target="_blank"><button type="button" class="btn btn-block btn-md btn-lg">Talk on Discourse</button></a>
           </div>
@@ -40,7 +40,7 @@
           </div>
           <div class="p-2">
             <h5 class="heading pl-3">Favorite Experience</h5>
-            <p class="pl-3 description py-1">{{object.favorite_experience}}</p>
+            <p class="pl-3 description py-1">{{object.fav_experience}}</p>
           </div>
         </div>
       </div>
