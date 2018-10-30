@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
-from pages.views import InternDetailView
+from pages.views import InternListView,InternDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +31,7 @@ urlpatterns = [
     path('iq', TemplateView.as_view(template_name="iq.html")),
     path('discuss', TemplateView.as_view(template_name="discuss.html")),
     # path('intern/<str:username>', internDetailView),
+    path('intern', InternListView.as_view()),
     path('intern/<str:slug>', InternDetailView.as_view()),
 ]
 
