@@ -17,7 +17,7 @@
 {% block content %}
 <br><br><br><br>
   <body>
-    <ul>
+<!--     <ul>
     {% for obj in object_list  %}
       <img src="{{ obj.picture_upload.url }}" style="height:135px;width:130px;" >
       <li>
@@ -26,7 +26,49 @@
        </li>
       <br>
     {% endfor %}
-    </ul>
+    </ul> -->
+
+  <!-- team -->
+  <section id="team-section" class="my-5 text-center bg-light text-muted">
+    <div class="container">
+      <div class="row">
+      {% for obj in object_list  %}
+        <div class="col-lg-4 col-md-4">
+          <div class="card  my-3">
+            <div class="card-body">
+              <img src="{{ obj.picture_upload.url }}" alt="Display Image" style="height:115px;width:130px;" class="img-fluid rounded-circle w-50 mb-3">
+              <h3>{{obj.name}}</h3>
+              <h6>Username:{{ obj.username }}</h6>
+              <h5 class="text-muted">{{obj.position}}</h5>
+              <p>{{ obj.introduction| truncatechars:50 }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+      {% if is_paginated %}
+      <div class="pagination">
+        <span class="step-links">
+          {% if page_obj.has_previous %}
+              <a href="?page=1">&laquo; first</a>
+              <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+          {% endif %}
+
+          <span class="current">
+              Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+          {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}">next</a>
+              <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+          {% endif %}
+        </span>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+
   </body>
 {% endblock content %}
 

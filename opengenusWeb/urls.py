@@ -31,7 +31,7 @@ urlpatterns = [
     path('iq', TemplateView.as_view(template_name="iq.html")),
     path('discuss', TemplateView.as_view(template_name="discuss.html")),
     # path('intern/<str:username>', internDetailView),
-    path('intern', InternListView.as_view()),
+    path('intern/', InternListView.as_view()),
     path('intern/<str:slug>', InternDetailView.as_view()),
 ]
 
