@@ -15,7 +15,6 @@
 {% endblock header %}
 
 {% block content %}
-<br><br><br><br>
   <body>
 <!--     <ul>
     {% for obj in object_list  %}
@@ -29,6 +28,8 @@
     </ul> -->
 
   <!-- team -->
+  <br><br>
+  <h1 class="alt-h1 lh-condensed mt-2 mb-10 text-center">Meet some of us!</h1>
   <section id="team-section" class="my-5 text-center bg-light text-muted">
     <div class="container">
       <div class="row">
@@ -36,7 +37,7 @@
         <div class="col-lg-4 col-md-4">
           <div class="card  my-3">
             <div class="card-body">
-              <img src="{{ obj.picture_upload.url }}" alt="Display Image" style="height:115px;width:130px;" class="img-fluid rounded-circle w-50 mb-3">
+              <img src="{{ obj.picture_upload.url }}" alt="Display Image" style="height:145px;width:150px;" class="img-fluid mb-4">
               <h3>{{obj.name}}</h3>
               <h6>Username:{{ obj.username }}</h6>
               <h5 class="text-muted">{{obj.position}}</h5>
