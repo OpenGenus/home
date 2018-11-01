@@ -28,4 +28,8 @@ class Interns(models.Model):
 		return self.name
 
 	class Meta:
-		ordering = ["-start_date"]
+		ordering = ["-finish_date"]
+
+	def save(self, *args, **kwargs):
+		self.username = self.username.lower()
+		super().save(*args, **kwargs)
