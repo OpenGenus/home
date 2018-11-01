@@ -12,7 +12,7 @@ def internDetailView(request,username):
 
 class InternListView(ListView):
 	queryset=Interns.objects.all()
-	paginate_by=27
+	paginate_by=2
 
 class InternDetailView(DetailView):
 	queryset = Interns.objects.all()
