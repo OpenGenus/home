@@ -1,0 +1,154 @@
+{% load static %}
+<html>
+<head>
+   
+    {% include "snippets/js.html" %}
+    <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="{% static "school.js" %}"></script>
+    <link rel="stylesheet" href="{% static "school.css" %}">
+</head>
+
+
+    <body>
+
+       <!-- Overlay for fixed sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-default open" role="navigation">
+    <!-- Sidebar header -->
+    <div class="sidebar-header header-cover" style="background-image: url(https://2.bp.blogspot.com/-2RewSLZUzRg/U-9o6SD4M6I/AAAAAAAADIE/voax99AbRx0/s1600/14%2B-%2B1%2B%281%29.jpg);">
+        <!-- Top bar -->
+        <div class="top-bar"></div>
+        <!-- Sidebar toggle button -->
+        <button type="button" class="sidebar-toggle">
+            <i class="icon-material-sidebar-arrow"></i>
+        </button>
+        <!-- Sidebar brand image -->
+        <div class="sidebar-image">
+            <img src="{{ object.logo_picture.url  }}">
+        </div>
+        <!-- Sidebar brand name -->
+        <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown" style="color:#ffffff">
+            {{ object.official_link }}
+            <b class="caret"></b>
+        </a>
+    </div>
+
+
+
+    <!-- Sidebar navigation -->
+    <ul class="nav sidebar-nav">
+        <li class="dropdown">
+            <ul id="settings-dropdown" class="dropdown-menu">
+                <li class="dropdown-item">
+                    <a href="#" tabindex="-1">
+                        Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="#" tabindex="-1">
+                        Settings
+                    </a>
+                </li>
+                <li>
+                    <a href="#" tabindex="-1">
+                        Help
+                    </a>
+                </li>
+                <li>
+                    <a href="#" tabindex="-1">
+                        Exit
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                <i class="sidebar-icon md-inbox"></i>
+                Gallery
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="sidebar-icon md-star"></i>
+                Starred
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="sidebar-icon md-send"></i>
+                Sent Mail
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="sidebar-icon md-drafts"></i>
+                Drafts
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li class="dropdown">
+            <a class="ripple-effect dropdown-toggle" href="#" data-toggle="dropdown">
+                All Mail
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#" tabindex="-1">
+                        Social
+                        <span class="sidebar-badge">12</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" tabindex="-1">
+                        Promo
+                        <span class="sidebar-badge">0</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                Trash
+                <span class="sidebar-badge">3</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                Spam
+                <span class="sidebar-badge">456</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                Follow Up
+                <span class="sidebar-badge badge-circle">i</span>
+            </a>
+        </li>
+    </ul>
+    <!-- Sidebar divider -->
+    <!-- <div class="sidebar-divider"></div> -->
+    
+    <!-- Sidebar text -->
+    <!--  <div class="sidebar-text">Text</div> -->
+</aside>
+
+<div class="wrapper">
+    <!-- Sidebar Constructor -->
+    <div class="constructor">
+        <h2 class="headline"><strong>{{ object.full_name }}</strong>  <small>{{ object.short_name }}</small></h2>
+        <p>URL ID: <a href="{{ object.url_id }}" target="_blank">{{ object.url_id }}</a></p>
+        <p>Location: {{ object.location }}</p>
+        <p>Established Date: {{ object.established_date }}</p>
+        <hr />
+        <h2 class="headline">Description</h2>
+        <p>{{ object.description }}</p>
+        <hr />
+        
+    </div>
+
+</div>
+    </body>
+</html>
