@@ -1,5 +1,6 @@
 from django.db import models
 
+from schools.models import school
 
 POSITION_CHOICES=(
 	('Intern','INTERN'),
@@ -23,6 +24,11 @@ class Interns(models.Model):
 	fav_experience	=	models.TextField(max_length=1000,null=True,blank=True)
 	height_field	=	models.IntegerField(default=0)
 	width_field		=	models.IntegerField(default=0)
+	latest_school	=	models.ForeignKey(school, on_delete = models.CASCADE, related_name='latest_school', default=1)
+	prev_school_1	=	models.ForeignKey(school, on_delete = models.CASCADE, 
+										null=True, blank=True,related_name='prev_school_1')
+	prev_school_2	=	models.ForeignKey(school, on_delete = models.CASCADE,
+										null=True, blank=True, related_name='prev_school_2')
 
 	def __str__(self):
 		return self.name
@@ -33,3 +39,13 @@ class Interns(models.Model):
 	def save(self, *args, **kwargs):
 		self.username = self.username.lower()
 		super().save(*args, **kwargs)
+
+# class Schools(models.Model):
+# 	full name			=	models.CharField(max_length=120, unique=True) 
+# 	short name			=	models.CharField(max_length=30, unique=True)
+# 	url_id				=	models.URLField(max_length=120, unique=True)
+# 	description			=	models.TextField(max_length=500)
+# 	location			=	models.CharField(max_length=120)
+# 	official_link		=	models.URLField(max_length=120, unique=True)
+# 	logo_picture		=	models.
+# 	established_date
