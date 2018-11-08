@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    'tinymce',
+
     'pages',
     'schools',
 ]
@@ -137,5 +139,8 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),"media_cdn")
 
 
 
-
-
+TINYMCE_DEFAULT_CONFIG = {
+'height': 360,
+'width': 620,
+'theme': "simple", 
+'relative_urls': False}

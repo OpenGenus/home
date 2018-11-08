@@ -5,11 +5,12 @@ from django.contrib.auth.views import LoginView, PasswordResetView
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import SchoolDetailView
+from .views import (SchoolDetailView,SchoolInternView)
 
 app_name = 'schools' 
 urlpatterns = [
-    path('<int:pk>/', SchoolDetailView.as_view(), name='detail'),
+    path('<slug:url_endpoint>/', SchoolDetailView.as_view(), name='detail'),
+    path('<int:pk>/interns', SchoolInternView.as_view(), name='asso-interns'),
     # url(r'^create/$', ItemCreateView.as_view(), name='create'),
     # url(r'^(?P<pk>\d+)/update$', ItemUpdateView.as_view(), name='update'),
     # url(r'^(?P<pk>\d+)/$', ItemDetailView.as_view(), name='detail'),
