@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.AddField(
             model_name='school',
             name='url_endpoint',
             field=models.SlugField(blank=True, null=True),
