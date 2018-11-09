@@ -152,7 +152,7 @@
         <hr />
         <!-- <button onclick="age( {{object.established_date.isoformat }} )">Try It</button> -->
         <h2 class="headline">Description</h2>
-        <p>{{ object.description }}</p>
+        <p>{{ object.description | safe }}</p>
         <hr />
         
     </div>
