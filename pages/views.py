@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import ListView,DetailView
 
-from pages.models import Interns
+from pages.models import intern
 # Create your views here.
 
 def internDetailView(request,username):
@@ -11,9 +11,9 @@ def internDetailView(request,username):
 # 	return HttpResponse("Hi")
 
 class InternListView(ListView):
-	queryset=Interns.objects.all()
+	queryset=intern.objects.all()
 	paginate_by=2
 
 class InternDetailView(DetailView):
-	queryset = Interns.objects.all()
+	queryset = intern.objects.all()
 	slug_field = 'username'

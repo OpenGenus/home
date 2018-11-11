@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    'tinymce',
+
     'pages',
     'schools',
 ]
@@ -137,5 +139,21 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),"media_cdn")
 
 
 
+TINYMCE_DEFAULT_CONFIG = {
+'height': 360,
+'width': 620,
+'themes': "advanced", 
+'relative_urls': False,
+'cleanup_on_startup': True,
+'custom_undo_redo_levels': 20,
+'selector': 'textarea',
 
-
+'plugins': 'table,advimage,advlink,inlinepopups,preview,media,searchreplace,contextmenu,paste,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras',
+'theme_advanced_buttons1': 'fullscreen,|,bold,italic,underline,strikethrough,|,sub,sup,|,bullist,numlist,|,outdent,indent,|,formatselect,removeformat',
+'theme_advanced_buttons2': 'cut,copy,paste,pastetext,pasteword,|,search,replace,|,undo,redo,|,link,unlink,anchor,image,media,charmap,|,visualchars,nonbreaking',
+'theme_advanced_buttons3': 'visualaid,tablecontrols,|,blockquote,del,ins,|,preview,code',
+'theme_advanced_toolbar_location': 'top',
+'theme_advanced_toolbar_align': 'left',
+'extended_valid_elements': 'noindex',
+'custom_elements': 'noindex',
+}

@@ -8,7 +8,7 @@ POSITION_CHOICES=(
 	('Founder','FOUNDER'),
 	)
 # Create your models here.
-class Interns(models.Model):
+class intern(models.Model):
 	username		=	models.CharField(max_length=120,unique=True)
 	name			=	models.CharField(max_length=120) 
 	discourse_url	=	models.URLField(max_length=120,unique=True)

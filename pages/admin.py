@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from pages.models import Interns
+from pages.models import intern
 # Register your models here.
-admin.site.register(Interns)
+admin.site.register(intern)

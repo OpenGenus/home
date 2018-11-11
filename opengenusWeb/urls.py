@@ -23,7 +23,7 @@ from pages.views import InternListView,InternDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name="home.html")),
+    path('', TemplateView.as_view(template_name="home.html"), name="home"),
     path('index', TemplateView.as_view(template_name="index.html")),
     path('cosmos', TemplateView.as_view(template_name="cosmos.html")),
     path('quark', TemplateView.as_view(template_name="quark.html")),
@@ -34,6 +34,9 @@ urlpatterns = [
     path('school/', include('schools.urls', namespace="schools")),
     path('intern/', InternListView.as_view()),
     path('intern/<str:slug>', InternDetailView.as_view()),
+
+
+    path('tinymce/', include('tinymce.urls')),
 ]
 
 if settings.DEBUG:
