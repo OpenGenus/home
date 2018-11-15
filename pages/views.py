@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import ListView,DetailView
 
 from pages.models import intern
+from schools.models import school
 # Create your views here.
 
 def internDetailView(request,username):
