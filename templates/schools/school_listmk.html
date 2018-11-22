@@ -1,96 +1,169 @@
-{% extends "base.html" %}
+{% load static %}
+<html>
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, user-scalable=no">
+    <meta name="description" content="OpenGenus Foundation, one of the largest open-source communities in the World focussed on enabling people to work offline for a longer stretch, making search generation and discussion specific and making research more accessible">
+    <meta name="keywords" content="OpenGenus, open-source, communities, offline internet">
+    <meta name="author" content="Aditya Chatterjee">
+    <link rel="stylesheet" href="{% static "school.css" %}">
+</head>
 
-<head>{% load static %}
-    {% block head %}
-    {{ block.super }}  
-{% endblock head %}    
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,500" rel="stylesheet">
-    <meta name="description" content="OpenGenus Internship {{object.username}} {{object.position}} {{object.about}} ">
-    <meta name="keywords" content="OpenGenus, open-source, communities, internship, {{object.username}}, {{object.position}}">
-  </head>
 
-  <title>{% block head_title %}{{ block.super }}{% endblock head_title %}</title>
-{% block header %}
-    {{ block.super }}
-{% endblock header %}
+    <body>
 
-{% block content %}
-  <body>
-  <br><br>
-  <h1 class="alt-h1 lh-condensed mt-2 mb-10 text-center">Meet some of us!</h1>
-  <section id="team-section" class="my-5 text-center bg-light text-muted">
-    <div class="container">
-      <div class="row">
-      {% for obj in object_list  %}
-        <div class="col-lg-4 col-md-4">
-          <div class="card  my-3">
-            <div class="card-body">
-              <a href='/intern/{{ obj.username }}'>
-              <img src="{{ obj.picture_upload.url }}" alt="Display Image" style="height:145px;width:150px;" class="img-fluid mb-4">
-              <h4>{{ obj.name }}
-            </a>
-            </div>
-          </div>
+       <!-- Overlay for fixed sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-default open" role="navigation">
+    <!-- Sidebar header -->
+    <div class="sidebar-header header-cover" style="background-image: url(https://2.bp.blogspot.com/-2RewSLZUzRg/U-9o6SD4M6I/AAAAAAAADIE/voax99AbRx0/s1600/14%2B-%2B1%2B%281%29.jpg);">
+        <!-- Top bar -->
+        <div class="top-bar"></div>
+        <!-- Sidebar toggle button -->
+        <button type="button" class="sidebar-toggle">
+            <i class="icon-material-sidebar-arrow"></i>
+        </button>
+        <!-- Sidebar brand image -->
+        <div class="sidebar-image">
+            <img src="{{ object.logo_picture.url  }}">
         </div>
-      {% endfor %}
-      </div>
-        {% if is_paginated %}
-          <!-- <div class="pagination-centered">
-            <span class="step-links">
-              {% if page_obj.has_previous %}
-                  <a href="?page=1">&laquo; first</a>
-                  <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-              {% endif %}
-
-              <span class="current">
-                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-            </span>
-
-              {% if page_obj.has_next %}
-                  <a href="?page={{ page_obj.next_page_number }}">next</a>
-                  <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-              {% endif %}
-            </span>
-          </div> -->
-
-          <nav aria-label="...">
-              <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
-                  <a class="page-link" href="?page=1" tabindex="-1">First</a>
-                  <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>
-                {% endif %}
-                {% for i in paginator.page_range %}
-                  {% if page_obj.number == i %}
-                    <li class="page-item  active"><a class="page-link" href="?page={{ i }}">{{ i }}<span class="sr-only">(current)</span></a>
-                    </li>
-                  {% else %}
-                    <li class="page-item">
-                    <a class="page-link" href="?page={{ i }}">{{ i }} </a>
-                    </li>
-                  {% endif %}
-                {% endfor %}
-                  {% if page_obj.has_next %}
-                  <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
-                  <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>
-                  {% endif %}
-              </ul>
-          </nav>
-
-
-        {% endif %}
-      </div>
+        <!-- Sidebar brand name -->
+        <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown" style="color:#ffffff">
+            {{ object.full_name }}
+            <b class="caret"></b>
+        </a>
     </div>
-  </section>
 
 
-  </body>
-{% endblock content %}
 
-{% block press_section %}
-{% endblock press_section %}
+    <!-- Sidebar navigation -->
+    <ul class="nav sidebar-nav">
+        <li class="dropdown">
+            <ul id="settings-dropdown" class="dropdown-menu">
+                <li >
+                    <a href="#" tabindex="-1">
+                        Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="#" tabindex="-1">
+                        Settings
+                    </a>
+                </li>
+                <li>
+                    <a href="#" tabindex="-1">
+                        Help
+                    </a>
+                </li>
+                <li>
+                    <a href="#" tabindex="-1">
+                        Exit
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="{{ object.official_link }}">
+                <i class="sidebar-icon md-inbox"></i>
+                Official Link
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="sidebar-icon md-star"></i>
+                Starred
+            </a>
+        </li>
+        <li>
+            <a href='{% url "schools:asso-interns" object.url_endpoint %}'>
+                <i class="sidebar-icon md-send"></i>
+                Associated Interns
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="sidebar-icon md-drafts"></i>
+                Drafts
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li class="dropdown">
+            <a class="ripple-effect dropdown-toggle" href="#" data-toggle="dropdown">
+                All Mail
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#" tabindex="-1">
+                        Social
+                        <span class="sidebar-badge">12</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" tabindex="-1">
+                        Promo
+                        <span class="sidebar-badge">0</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+                Trash
+                <span class="sidebar-badge">3</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                Spam
+                <span class="sidebar-badge">456</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                Follow Up
+                <span class="sidebar-badge badge-circle">i</span>
+            </a>
+        </li>
+    </ul>
+    <!-- Sidebar divider -->
+    <!-- <div class="sidebar-divider"></div> -->
+    
+    <!-- Sidebar text -->
+    <!--  <div class="sidebar-text">Text</div> -->
+</aside>
 
-<footer>
-{% block footer %}
-  {{ block.super }}
-{% endblock footer %}
-</footer>
+
+<div class="wrapper">
+    <!-- Sidebar Constructor -->
+    <div class="constructor">
+        <h2 class="headline"><strong>Our Interns</strong></h2>
+            {% for obj in object.latest_school.all %}
+              <div class="col-lg-4 col-md-4">
+              <div class="card  my-3">
+                <div class="card-body">
+                  <a href='/intern/{{ obj.username }}'>
+                  <img src="{{ obj.picture_upload.url }}" alt="Display Image" style="height:145px;width:150px;" class="img-fluid mb-4">
+                  <h4>{{ obj.name }}
+                </a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+        
+        
+    </div>
+
+</div>
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <script language="JavaScript" type="text/javascript" src="{% static "school.js" %}"></script>
+
+    </body>
+</html>

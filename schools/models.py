@@ -4,7 +4,7 @@ from django.db.models.signals import pre_save
 from tinymce.models import HTMLField
 from tinymce.widgets import TinyMCE
 from tinymce import models as tinymce_models
-
+from django.urls import reverse
 
 from .utils import unique_slug_generator
 
@@ -31,6 +31,9 @@ class school(models.Model):
 
 	class Meta:
 		ordering = ["-established_date"]
+
+	def get_absolute_url(self):
+		return reverse('schools:detail', args=[str(self.url_endpoint)])
 
 def school_pre_save_receiver(sender, instance, *args,**kwargs):
 	if not instance.url_endpoint:

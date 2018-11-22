@@ -14,15 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 from django.conf import settings
+
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 from pages.views import InternListView,InternDetailView
+from pages.sitemaps import SchoolSitemap, InternSitemap
+
+sitemaps = {
+    'schools' : SchoolSitemap,
+    'interns' : InternSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('sitemap.xml', sitemap, {'sitemaps' : sitemaps}, name = 'django.contrib.sitemaps.views.sitemap'),
+    # path('pages/<int:id>'),
     path('', TemplateView.as_view(template_name="home.html"), name="home"),
     path('index', TemplateView.as_view(template_name="index.html")),
     path('cosmos', TemplateView.as_view(template_name="cosmos.html")),
@@ -32,8 +42,8 @@ urlpatterns = [
     path('discuss', TemplateView.as_view(template_name="discuss.html")),
     # path('intern/<str:username>', internDetailView),
     path('school/', include('schools.urls', namespace="schools")),
-    path('intern/', InternListView.as_view()),
-    path('intern/<str:slug>', InternDetailView.as_view()),
+    path('intern/', InternListView.as_view(),name='intern'),
+    path('intern/<str:slug>', InternDetailView.as_view(),name='intern-detail'),
 
 
     path('tinymce/', include('tinymce.urls')),

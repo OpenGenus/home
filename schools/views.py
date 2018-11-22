@@ -6,7 +6,11 @@ from .models import school
 
 # Create your views here.
 class SchoolDetailView(DetailView):
-	queryset = school.objects.all()
+
+	def def_queryset(self):
+		school_name=self.kwargs['url_endpoint']
+		queryset = school.objects.filter(url_endpoint=school_name)
+		return queryset
 
 	def get_object(self):
 		object = get_object_or_404(school, url_endpoint=self.kwargs['url_endpoint'])
