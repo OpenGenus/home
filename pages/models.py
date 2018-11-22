@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 from schools.models import school
 
 POSITION_CHOICES=(
@@ -35,6 +35,9 @@ class intern(models.Model):
 
 	class Meta:
 		ordering = ["-finish_date"]
+
+	def get_absolute_url(self):
+		return reverse('intern-detail',args=[str(self.username)])
 
 	def save(self, *args, **kwargs):
 		self.username = self.username.lower()
