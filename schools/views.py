@@ -11,7 +11,7 @@ class SchoolDetailView(DetailView):
 	def get_object(self):
 		object = get_object_or_404(school, url_endpoint=self.kwargs['url_endpoint'])
 		return object
-	
+
 
 class SchoolInternView(ListView):
 	template_name = "schools/school_listmk.html"
@@ -24,4 +24,7 @@ class SchoolInternView(ListView):
 		print(school_name)
 		queryset = qs.latest_school.all()
 		return queryset
-	
+
+class SchoolListView(ListView):
+	queryset=school.objects.all()
+	paginate_by=2
