@@ -34,7 +34,7 @@ urlpatterns = [
     path('school/', include('schools.urls', namespace="schools")),
     path('intern/', InternListView.as_view()),
     path('intern/<str:slug>', InternDetailView.as_view()),
-
+    path('faq', TemplateView.as_view(template_name="faq.html")),
 
     path('tinymce/', include('tinymce.urls')),
 ]

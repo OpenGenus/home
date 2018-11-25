@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+<head>
+  {% block head %}
+      {{ block.super }}
+  {% endblock head %}
+</head>
+
+{% block header %}
+      {{ block.super }}
+{% endblock header %}
+
+{% block content %}
+  {% block first_section %}
+    {% block first_section_upper %}
+      {{block.super}}
+    {% endblock first_section_upper %}
+
+      <h1 class="display-5">FAQ</h1>
+      <h5 style="color: white !important;" class="display-5">by OpenGenus Foundation</h5>
+
+    {% block first_section_lower %}
+      {{block.super}}
+  {% endblock first_section_lower %}
+{% endblock first_section %}
+
+  {% block second_section %}
+    {% block second_section_upper %}
+      {{block.super}}
+    {% endblock second_section_upper %}
+<div class="container faq_section">
+  <div class="FaQ_Each">
+    <section class="box">
+      <span>
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        <i class="fa fa-minus" id="other" aria-hidden="true"></i>
+      </span>
+      &nbsp;&nbsp;<span>What is OpenGenus Foundation ?</span>
+    </section>
+    <section class="draw">
+      OpenGenus Foundation is an open-source non-profit organization with the aim to enable people to work offline for a longer stretch, reduce the time spent on searching by exploiting the fact that almost 90% of the searches are same for every generation and to make programming more accessible.
+    </section>
+  </div>
+  <div class="FaQ_Each">
+    <section class="box">
+      <span>
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        <i class="fa fa-minus" id="other" aria-hidden="true"></i>
+      </span>
+      &nbsp;&nbsp;<span>What is OpenGenus Foundation about ?</span>
+    </section>
+    <section class="draw">
+      OpenGenus is all about positivity and innovation.
+    </section>
+  </div>
+  <div class="FaQ_Each">
+    <section class="box">
+      <span>
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        <i class="fa fa-minus" id="other" aria-hidden="true"></i>
+      </span>
+      &nbsp;&nbsp;<span>More about OpenGenus ?</span>
+    </section>
+    <section class="draw">
+      Over 800 people have contributed to our missions and joined our family. We have been sponsored by three great companies namely Discourse, GitHub and DigitalOcean. We run one of the most popular open-source projects and have made a positive impact over people's life.
+    </section>
+  </div>
+</div>
+    {% block second_section_lower %}
+      {{block.super}}
+    {% endblock second_section_lower %}
+  {% endblock second_section %}
+
+{% endblock content %}
+
+{% block press_section %}{{ block.super }}{% endblock press_section %}
+
+<footer>{% block footer %}{{ block.super }}{% endblock footer %}</footer>
