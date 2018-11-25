@@ -5,10 +5,11 @@ from django.conf import settings
 from django.urls import path,resolve
 from django.conf.urls.static import static
 
-from .views import (SchoolDetailView,SchoolInternView)
+from .views import (SchoolDetailView,SchoolInternView,SchoolListView)
 
-app_name = 'schools' 
+app_name = 'schools'
 urlpatterns = [
+    path('', SchoolListView.as_view()),
     path('<slug:url_endpoint>/', SchoolDetailView.as_view(), name='detail'),
     path('<slug:url_endpoint>/interns', SchoolInternView.as_view(), name='asso-interns'),
     # url(r'^create/$', ItemCreateView.as_view(), name='create'),
