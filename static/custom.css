@@ -186,3 +186,8 @@ hr {
   max-height:70%;
   max-width: 100%;
 }
+
+.btn-horizontal-center{
+  margin: 0 auto;
+  display: block;
+}
