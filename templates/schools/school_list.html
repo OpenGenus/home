@@ -16,7 +16,7 @@
 
 {% block content %}
   <body>
-  <br><br>
+  <br><br><br>
   <h1 class="alt-h1 lh-condensed mt-2 mb-10 text-center">Schools!</h1>
   <section id="team-section" class="my-5 text-center bg-light text-muted">
     <div class="container">
@@ -26,7 +26,9 @@
           <div class="card  my-3">
             <div class="card-body">
               <a href='/school/{{ obj.url_endpoint }}'>
-              <img src="{{ obj.logo_picture.url }}" alt="Display Image" style="height:145px;width:150px;" class="img-fluid mb-4">
+                {% if obj.logo_picture %}
+                  <img src="{{ obj.logo_picture.url }}" alt="School Logo" style="height:145px;width:150px;" class="img-fluid mb-4">
+                {% endif %}
               <h4>{{ obj.full_name }}
             </a>
             </div>
