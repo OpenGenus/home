@@ -1,170 +1,55 @@
-{% load static %}
-<html>
-<head>
-   
-    
-   
-    <link rel="stylesheet" href="{% static "school.css" %}">
-</head>
+{% extends "base.html" %}
 
+<head>{% load static %}
+    {% block head %}
+    {{ block.super }}
+{% endblock head %}
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,500" rel="stylesheet">
+    <meta name="description" content="OpenGenus {{object.full_name}} School  {{object.location}} ">
+    <meta name="keywords" content="OpenGenus, open-source, communities, school, {{object.full_name}}">
+  </head>
 
-    <body>
+  <title>{% block head_title %}{{ block.super }}{% endblock head_title %}</title>
+{% block header %}
+    {{ block.super }}
+{% endblock header %}
 
-       <!-- Overlay for fixed sidebar -->
-<div class="sidebar-overlay"></div>
-
-<!-- Material sidebar -->
-<aside id="sidebar" class="sidebar sidebar-default open" role="navigation">
-    <!-- Sidebar header -->
-    <div class="sidebar-header header-cover" style="background-image: url(https://2.bp.blogspot.com/-2RewSLZUzRg/U-9o6SD4M6I/AAAAAAAADIE/voax99AbRx0/s1600/14%2B-%2B1%2B%281%29.jpg);">
-        <!-- Top bar -->
-        <div class="top-bar"></div>
-        <!-- Sidebar toggle button -->
-        <button type="button" class="sidebar-toggle">
-            <i class="icon-material-sidebar-arrow"></i>
-        </button>
-        <!-- Sidebar brand image -->
-        <div class="sidebar-image">
-            <img src="{{ object.logo_picture.url  }}">
-        </div>
-        <!-- Sidebar brand name -->
-        <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown" style="color:#ffffff">
-            {{ object.full_name }}
-            <b class="caret"></b>
-        </a>
+{% block content %}
+<body>
+  <br><br>
+  <h1 class="alt-h1 lh-condensed mt-2 mb-10 text-center">
+    <img height= "60" width="60" src="{{ object.logo_picture.url  }}">{{ object.full_name }} <small>,{{ object.location }}</small>
+  </h1>
+  <h6 class="alt-h1 lh-condensed mt-2 mb-10 text-center">
+    <strong>ESTD: </strong>{{ object.established_date }}
+  </h6>
+  <h6 class="alt-h1 lh-condensed mt-2 mb-10 text-center">
+    <a target="_blank" href="{{ object.official_link }}">Official Link</a>
+  </h6>
+  <br>
+  <div clas="col-sm-12 text center">
+    <button onclick="location.href='/school/{{ object.url_endpoint }}/interns'" class="btn btn-horizontal-center">
+      Interns from {{ object.short_name }}
+    </button>
+  </div>
+  <section id="team-section" class="my-5 text-center bg-light text-muted">
+    <div class="container">
+      <h4 class="alt-h1 lh-condensed mt-2 mb-10 text-center">
+        About {{ object.short_name }} :
+      </h4><br>
+      <h5 class="alt-h1 lh-condensed mt-2 mb-10 text-center">
+        {{ object.description | safe }}
+      </h5>
     </div>
+  </section>
+</body>
+{% endblock content %}
 
+{% block press_section %}
+{% endblock press_section %}
 
-
-    <!-- Sidebar navigation -->
-    <ul class="nav sidebar-nav">
-        <li class="dropdown">
-            <ul id="settings-dropdown" class="dropdown-menu">
-                <li >
-                    <a href="#" tabindex="-1">
-                        Profile
-                    </a>
-                </li>
-                <li>
-                    <a href="#" tabindex="-1">
-                        Settings
-                    </a>
-                </li>
-                <li>
-                    <a href="#" tabindex="-1">
-                        Help
-                    </a>
-                </li>
-                <li>
-                    <a href="#" tabindex="-1">
-                        Exit
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="{{ object.official_link }}">
-                <i class="sidebar-icon md-inbox"></i>
-                Official Link
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="sidebar-icon md-star"></i>
-                Starred
-            </a>
-        </li>
-        <li>
-            <a href='{% url "schools:asso-interns" object.url_endpoint %}'>
-                <i class="sidebar-icon md-send"></i>
-                Associated Interns
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="sidebar-icon md-drafts"></i>
-                Drafts
-            </a>
-        </li>
-        <li class="divider"></li>
-        <li class="dropdown">
-            <a class="ripple-effect dropdown-toggle" href="#" data-toggle="dropdown">
-                All Mail
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="#" tabindex="-1">
-                        Social
-                        <span class="sidebar-badge">12</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" tabindex="-1">
-                        Promo
-                        <span class="sidebar-badge">0</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">
-                Trash
-                <span class="sidebar-badge">3</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                Spam
-                <span class="sidebar-badge">456</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                Follow Up
-                <span class="sidebar-badge badge-circle">i</span>
-            </a>
-        </li>
-    </ul>
-    <!-- Sidebar divider -->
-    <!-- <div class="sidebar-divider"></div> -->
-    
-    <!-- Sidebar text -->
-    <!--  <div class="sidebar-text">Text</div> -->
-</aside>
-
-<div class="wrapper">
-    <!-- Sidebar Constructor -->
-    <div class="constructor">
-        <h2 class="headline"><strong>{{ object.full_name }}</strong>  <small>{{ object.short_name }}</small></h2>
-        <p>URL ID: <a href="{{ object.url_id }}" target="_blank">{{ object.url_id }}</a></p>
-        <p>Location: {{ object.location }}</p>
-        <p>Established Date: {{ object.established_date }}</p>
-        <p id="demo"></p>
-
-        <script type="text/javascript"> 
-            var x = document.getElementById("demo");
-            var established_date = new Date("{{object.established_date.isoformat }}")
-            var today = new Date();
-            var age = today.getFullYear() - established_date.getFullYear();
-            x.innerHTML = age +" years old ";
-        </script>
-        <hr />
-        <!-- <button onclick="age( {{object.established_date.isoformat }} )">Try It</button> -->
-        <h2 class="headline">Description</h2>
-        <p>{{ object.description | safe }}</p>
-        <hr />
-        
-    </div>
-
-</div>
- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    
-    <script language="JavaScript" type="text/javascript" src="{% static "school.js" %}"></script>
-
-    </body>
-</html>
+<footer>
+{% block footer %}
+  {{ block.super }}
+{% endblock footer %}
+</footer>
