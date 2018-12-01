@@ -98,13 +98,16 @@ header {
   bottom: 0;
   width: 100%;
   background: #212121;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 10px;
   -webkit-transform: translateZ(0)
 }
 
 .footer li:nth-of-type(n+2) {
   margin-left: 8px;
+}
+.footer li:nth-of-type(n+1) {
+  margin-right: 25px;
 }
 .footer a {
   font-size: 18px;
@@ -190,4 +193,11 @@ hr {
 .btn-horizontal-center{
   margin: 0 auto;
   display: block;
+}
+.social_link{
+  color: #fef232;
+  transition: all .2s ease-in-out;
+}
+.social_link:hover{
+  transform: scale(1.1);
 }
