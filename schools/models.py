@@ -11,7 +11,7 @@ from .utils import unique_slug_generator
 
 # Create your models here.
 class school(models.Model):
-	full_name			=	models.CharField(max_length=120, unique=True) 
+	full_name			=	models.CharField(max_length=120, unique=True)
 	short_name			=	models.CharField(max_length=120, unique=True)
 	url_endpoint		=	models.SlugField(null=True,blank=True)
 	# description			=	models.TextField(max_length=1000)
@@ -24,10 +24,14 @@ class school(models.Model):
 	width_field			=	models.IntegerField(default=0)
 	established_date	=	models.DateField()
 	description			=	HTMLField(null=True,blank=True)
-	
+	opengenus_rating    =   models.FloatField(default=0)
+
 
 	def __str__(self):
 		return self.full_name
+
+	def get_rating_perc(self):
+		return int((self.opengenus_rating/5)*100)
 
 	class Meta:
 		ordering = ["-established_date"]

@@ -17,26 +17,36 @@
 {% block content %}
   <body>
   <br><br><br>
-  <h1 class="alt-h1 lh-condensed mt-2 mb-10 text-center">Meet some of us!</h1>
+  <h1 class="alt-h1 lh-condensed mt-2 mb-10 text-center">Meet some of us!</h1><br>
+  <div class="input-group pad-lr-20">
+    <input type="text" class="form-control" id="search-query" name="query" autocomplete="off">
+    <span class="input-group-btn">
+      <button class="btn btn-default" id="search-button" data-page="intern" type="submit">Search!</button>
+    </span>
+  </div>
   <section id="team-section" class="my-5 text-center bg-light text-muted">
     <div class="container">
       <div class="row">
-      {% for obj in object_list  %}
-        <div class="col-lg-4 col-md-4">
-          <div class="card  my-3">
-            <div class="card-body">
-              <a href='/intern/{{ obj.username }}'>
-                {% if obj.picture_upload %}
-                  <img src="{{ obj.picture_upload.url }}" alt="Display Image" style="height:145px;width:150px;" class="img-fluid mb-4">
-                {% else %}
-                  <img src="/static/user/intern/picture/intern1.jpeg" alt="Display Image" style="height:145px;width:150px;" class="img-fluid mb-4">
-                {% endif %}
-              <h4>{{ obj.name }}
-            </a>
+        {% if object_list %}
+          {% for obj in object_list  %}
+            <div class="col-lg-4 col-md-4">
+              <div class="card  my-3">
+                <div class="card-body">
+                  <a href='/intern/{{ obj.username }}'>
+                    {% if obj.picture_upload %}
+                      <img src="{{ obj.picture_upload.url }}" alt="Display Image" style="height:145px;width:150px;" class="img-fluid mb-4">
+                    {% else %}
+                      <img src="/static/user/intern/picture/intern1.jpeg" alt="Display Image" style="height:145px;width:150px;" class="img-fluid mb-4">
+                    {% endif %}
+                  <h4>{{ obj.name }}
+                </a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      {% endfor %}
+          {% endfor %}
+        {% else %}
+         No interns found !!!
+        {% endif %}
       </div>
         {% if is_paginated %}
           <!-- <div class="pagination-centered">
