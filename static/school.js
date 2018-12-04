@@ -10,6 +10,7 @@
 // Sidebar toggle
 //
 // -------------------
+/*
 $(document).ready(function() {
     var overlay = $('.sidebar-overlay');
 
@@ -88,7 +89,7 @@ $(document).ready(function() {
  *
  * Add JQuery animation to bootstrap dropdown elements.
  */
-
+/*
 (function($) {
     var dropdown = $('.dropdown');
 
@@ -129,4 +130,10 @@ $(document).ready(function() {
 	}
 
 })(jQuery.fn.removeClass);
-
+*/
+$('[class^="rating-"], [class*=" rating-"]').each(function () {
+    var classname = this.className;
+    var classsparts = classname.split('rating-');
+    var rating_perc = classsparts[1];
+    $('.rating-'+rating_perc).width(rating_perc+'%');
+});

@@ -18,8 +18,21 @@
 <body>
   <br><br><br>
   <h1 class="alt-h1 lh-condensed mt-2 mb-10 text-center">
-    <img height= "60" width="60" src="{{ object.logo_picture.url  }}">{{ object.full_name }} <small>,{{ object.location }}</small>
+    {% if object.logo_picture %}
+      <img height= "60" width="60" src="{{ object.logo_picture.url  }}">
+    {% endif %}
+    {{ object.full_name }} <small>,{{ object.location }}</small>
   </h1>
+  {% if object.opengenus_rating %}
+  <div class="star-ratings" data-toggle="tooltip" data-placement="top" title="Rating - {{ object.opengenus_rating }}">
+    <div class="star-ratings-top rating-{{ object.get_rating_perc }}">
+      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+    </div>
+    <div class="star-ratings-bottom">
+      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+    </div>
+  </div>
+  {% endif %}
   <h6 class="alt-h1 lh-condensed mt-2 mb-10 text-center">
     <strong>ESTD: </strong>{{ object.established_date }}
   </h6>
@@ -42,6 +55,7 @@
       </h5>
     </div>
   </section>
+  <script language="JavaScript" type="text/javascript" src="{% static "school.js" %}"></script>
 </body>
 {% endblock content %}
 

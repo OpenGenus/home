@@ -26,5 +26,10 @@ class SchoolInternView(ListView):
 		return queryset
 
 class SchoolListView(ListView):
-	queryset=school.objects.all()
-	paginate_by=2
+    paginate_by=2
+
+    def get_queryset(self):
+        if len(self.kwargs) > 0:
+            return school.objects.filter(full_name__icontains=self.kwargs['query'])
+        else:
+            return school.objects.all()

@@ -12,6 +12,7 @@ urlpatterns = [
     path('', SchoolListView.as_view()),
     path('<slug:url_endpoint>/', SchoolDetailView.as_view(), name='detail'),
     path('<slug:url_endpoint>/interns', SchoolInternView.as_view(), name='asso-interns'),
+    path('search/<query>/',SchoolListView.as_view(), name='search')
     # url(r'^create/$', ItemCreateView.as_view(), name='create'),
     # url(r'^(?P<pk>\d+)/update$', ItemUpdateView.as_view(), name='update'),
     # url(r'^(?P<pk>\d+)/$', ItemDetailView.as_view(), name='detail'),

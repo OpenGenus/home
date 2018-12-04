@@ -12,8 +12,12 @@ def internDetailView(request,username):
 # 	return HttpResponse("Hi")
 
 class InternListView(ListView):
-	queryset=intern.objects.all()
 	paginate_by=2
+	def get_queryset(self):
+		if len(self.kwargs) > 0:
+			return intern.objects.filter(name__icontains=self.kwargs['query'])
+		else:
+			return intern.objects.all()
 
 class InternDetailView(DetailView):
 	queryset = intern.objects.all()
