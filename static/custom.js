@@ -14,6 +14,12 @@ $(function () {
 
 //For faq accordion
 $(document).ready(function(){
+
+  if(window.location.href.indexOf('search') >= 0){
+    var query = window.location.href.split("search/").pop().split("/")[0];
+    $( '#search-query' ).val(query);
+  }
+
 	$(".box").click(function(){
 	  $(this).next().slideToggle("fast");
 	  $(this).find('i').toggle();
