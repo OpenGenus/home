@@ -22,11 +22,12 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 from pages.views import InternListView,InternDetailView
-from pages.sitemaps import SchoolSitemap, InternSitemap
+from pages.sitemaps import SchoolSitemap, InternSitemap, StaticViewSitemap
 
 sitemaps = {
     'schools' : SchoolSitemap,
     'interns' : InternSitemap,
+    'static'  : StaticViewSitemap,
 }
 
 urlpatterns = [
@@ -34,12 +35,12 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps' : sitemaps}, name = 'django.contrib.sitemaps.views.sitemap'),
     # path('pages/<int:id>'),
     path('', TemplateView.as_view(template_name="home.html"), name="home"),
-    path('index', TemplateView.as_view(template_name="index.html")),
-    path('cosmos', TemplateView.as_view(template_name="cosmos.html")),
-    path('quark', TemplateView.as_view(template_name="quark.html")),
-    path('search', TemplateView.as_view(template_name="search.html")),
-    path('iq', TemplateView.as_view(template_name="iq.html")),
-    path('discuss', TemplateView.as_view(template_name="discuss.html")),
+    path('index', TemplateView.as_view(template_name="index.html"), name="index"),
+    path('cosmos', TemplateView.as_view(template_name="cosmos.html"), name="cosmos"),
+    path('quark', TemplateView.as_view(template_name="quark.html"), name="quark"),
+    path('search', TemplateView.as_view(template_name="search.html"), name="search"),
+    path('iq', TemplateView.as_view(template_name="iq.html"), name="iq"),
+    path('discuss', TemplateView.as_view(template_name="discuss.html"), name="discuss"),
     # path('intern/<str:username>', internDetailView),
     path('school/', include('schools.urls', namespace="schools")),
     path('intern/', InternListView.as_view(),name='intern'),
