@@ -101,15 +101,15 @@ header {
 }
 .navbar-light .navbar-nav .nav-link {
   font-family: 'Fira Sans', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight:400;
   color: #404040;
   letter-spacing: 2px;
   padding-right: 4px;
   padding-left: 4px;
   display: inline-block;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+  padding-top: 16px;
+  padding-bottom: 16px;
   border-bottom: 3px solid transparent;
   border-top: 3px solid transparent;
   transition: border-color 0.2s linear;
