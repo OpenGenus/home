@@ -15,31 +15,35 @@
 	<header>
         <nav class="navbar navbar-light navbar-expand-lg navbar-fixed-top">
 					<a href="{% url 'home' %}" class="navbar-brand mr-auto">
-						 <img src="/static/image/og_logo.png" alt="Open Genus" style="height:40px;width:auto;" class="img-fluid">
+						 <img src="/static/image/og_logo.png" alt="Open Genus" style="height:2.57rem;width:auto;" class="img-fluid">
 					</a>
 
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#headerNav" aria-controls="headerNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div id="headerNav" class="collapse navbar-collapse text-uppercase">
+          <div id="headerNav" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
 
-              <li class="nav-item">
-                <a class="nav-link" href="https://github.com/OpenGenus/quark" target="_blank">Quark</a>
+							<li class="nav-item">
+                <a class="nav-link {% if request.resolver_match.view_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="https://github.com/OpenGenus/cosmos" target="_blank">Cosmos</a>
+                <a class="nav-link {% if request.resolver_match.view_name == 'quark' %}active{% endif %}" href="https://github.com/OpenGenus/quark" target="_blank">Quark</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link {% if request.resolver_match.view_name == 'cosmos' %}active{% endif %}" href="https://github.com/OpenGenus/cosmos" target="_blank">Cosmos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="http://iq.opengenus.org/" target="_blank">IQ</a>
+                <a class="nav-link {% if request.resolver_match.view_name == 'iq' %}active{% endif %}" href="http://iq.opengenus.org/" target="_blank">IQ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://discourse.opengenus.org/" target="_blank">Discuss</a>
+                <a class="nav-link {% if request.resolver_match.view_name == 'discuss' %}active{% endif %}" href="https://discourse.opengenus.org/" target="_blank">Discuss</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://github.com/OpenGenus/cosmos-search" target="_blank">Search Engine</a>
+                <a class="nav-link {% if request.resolver_match.view_name == 'search' %}active{% endif %}" href="https://github.com/OpenGenus/cosmos-search" target="_blank">Search Engine</a>
               </li>
 
             </ul>
