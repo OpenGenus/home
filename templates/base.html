@@ -30,20 +30,20 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link {% if request.resolver_match.view_name == 'quark' %}active{% endif %}" href="https://github.com/OpenGenus/quark" target="_blank">Quark</a>
+                <a class="nav-link {% if request.resolver_match.view_name == 'quark' %}active{% endif %}" href="{% url 'quark' %}">Quark</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link {% if request.resolver_match.view_name == 'cosmos' %}active{% endif %}" href="https://github.com/OpenGenus/cosmos" target="_blank">Cosmos</a>
+                <a class="nav-link {% if request.resolver_match.view_name == 'cosmos' %}active{% endif %}" href="{% url 'cosmos' %}">Cosmos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {% if request.resolver_match.view_name == 'iq' %}active{% endif %}" href="http://iq.opengenus.org/" target="_blank">IQ</a>
+                <a class="nav-link {% if request.resolver_match.view_name == 'iq' %}active{% endif %}" href="{% url 'iq' %}">IQ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {% if request.resolver_match.view_name == 'discuss' %}active{% endif %}" href="https://discourse.opengenus.org/" target="_blank">Discuss</a>
+                <a class="nav-link {% if request.resolver_match.view_name == 'discuss' %}active{% endif %}" href="{% url 'discuss' %}">Discuss</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {% if request.resolver_match.view_name == 'search' %}active{% endif %}" href="https://github.com/OpenGenus/cosmos-search" target="_blank">Search Engine</a>
+                <a class="nav-link {% if request.resolver_match.view_name == 'search' %}active{% endif %}" href="{% url 'search' %}">Search Engine</a>
               </li>
 
             </ul>
