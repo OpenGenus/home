@@ -13,7 +13,7 @@
 
 {% block header %}
 	<header>
-        <nav class="navbar navbar-light navbar-expand-lg navbar-fixed-top">
+        <nav class="navbar navbar-light bg-light navbar-expand-lg navbar-fixed-top">
 					<a href="{% url 'home' %}" class="navbar-brand mr-auto">
 						 <img src="/static/image/og_logo.png" alt="Open Genus" style="height:2.57rem;width:auto;" class="img-fluid">
 					</a>
@@ -26,20 +26,24 @@
             <ul class="navbar-nav ml-auto">
 
               <li class="nav-item">
-                <a class="nav-link" href="https://github.com/OpenGenus/quark" target="_blank">Quark</a>
+                <a class="nav-link {% if request.resolver_match.view_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="https://github.com/OpenGenus/cosmos" target="_blank">Cosmos</a>
+                <a class="nav-link {% if request.resolver_match.view_name == 'quark' %}active{% endif %}" href="{% url 'quark' %}">Quark</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link {% if request.resolver_match.view_name == 'cosmos' %}active{% endif %}" href="{% url 'cosmos' %}">Cosmos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="http://iq.opengenus.org/" target="_blank">IQ</a>
+                <a class="nav-link {% if request.resolver_match.view_name == 'iq' %}active{% endif %}" href="{% url 'iq' %}">IQ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://discourse.opengenus.org/" target="_blank">Discuss</a>
+                <a class="nav-link {% if request.resolver_match.view_name == 'discuss' %}active{% endif %}" href="{% url 'discuss' %}">Discuss</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://github.com/OpenGenus/cosmos-search" target="_blank">Search Engine</a>
+                <a class="nav-link {% if request.resolver_match.view_name == 'search' %}active{% endif %}" href="{% url 'search' %}">Search Engine</a>
               </li>
 
             </ul>
