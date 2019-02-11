@@ -91,6 +91,27 @@ header {
   -webkit-transform: translateZ(0)
 }
 
+/* Navbar */
+.navbar {
+  padding: 0.3rem 1rem;
+}
+.navbar-light .navbar-nav .nav-link {
+  font-family: "Poppins", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
+  font-weight:500;
+  color: #6c757dc9;
+  letter-spacing: 0.05rem;
+}
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link.active{
+  color: #212121;
+}
+.navbar-light .navbar-toggler {
+  border-color: transparent;
+}
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 /* Footer */
 .footer {
   position: fixed;
@@ -150,6 +171,34 @@ header {
     white-space: normal;
 }
 /* Mobile */
+@media (min-width: 992px) {
+  /* Navbar */
+  .navbar {
+    padding: 0rem 1rem;
+
+  }
+  .navbar-light .navbar-nav .nav-link {
+    padding-right: 0.80em;
+    padding-left: 0.80em;
+    display: inline-block;
+    padding-top: 1.0rem;
+    padding-bottom: 1.0rem;
+    border-bottom: 0.20rem solid transparent;
+    border-top: 0.20rem solid transparent;
+    transition: border-color 0.2s linear, background-color 0.2s linear, color 0.2s linear;
+    -webkit-transition: border-color 0.2s linear, background-color 0.2s linear, color 0.2s linear;
+  }
+
+  .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link.active {
+    border-bottom: 0.20rem solid #ffc107;
+    background-color: #fef56f;
+  }
+}
+@media (max-width: 991.98px) {
+  .navbar-light .nav-item + .nav-item{
+    border-top: 1px solid #f2f1f1;
+  }
+}
 @media screen and (max-width: 600px) {
 
     .single-div {
